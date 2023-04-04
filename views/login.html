@@ -21,16 +21,16 @@
   <main >
 <section class="section is-medium container-form mb-5">
 
-  <section class="form section card mb-5">
+  <form class="form section card login-form mb-5">
     <!-- Sign in Form Header -->
-    <h1 class="content is-large card-header-title is-centered">Login Form</h1>
+    <h1 class="content is-large card-header-title is-centered login-form">Login Form</h1>
 
     <!-- body of form -->
     
     <div class="field">
       <label class="label">Email</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input is-danger" type="email" placeholder="Email input">
+        <input class="input is-danger" type="email" placeholder="Email input" id="email-login">
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
@@ -43,7 +43,7 @@
     <div class="field">
       <label class="label">Password</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input is-danger" type="password" placeholder="Password input">
+        <input class="input is-danger" type="password" placeholder="Password input" id="password-login">
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
@@ -55,21 +55,21 @@
     
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-link">Login</button>
+        <button class="button is-link " type="submit">Login</button>
       </div>
     </div>
-  </section>
+  </form>
 
   <!-- Signup Form -->
-  <section class="form section card mb-5">
+  <form class="form section signup-form card mb-5">
     <!-- Form Header -->
-    <h1 class="content is-large card-header-title is-centered">Sign Up Form</h1>
+    <h1 class="content is-large card-header-title is-centered ">Sign Up Form</h1>
 
     <!-- body of form -->
     <div class="field">
       <label class="label">Username</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input is-success" type="text" placeholder="Text input">
+        <input class="input is-success" type="text" placeholder="Text input" id="username-signup">
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
         </span>
@@ -82,7 +82,7 @@
     <div class="field">
       <label class="label">Email</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input is-danger" type="email" placeholder="Email input">
+        <input class="input is-danger" type="email" placeholder="Email input" id="email-signup">
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
@@ -95,7 +95,7 @@
     <div class="field">
       <label class="label">Password</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input is-danger" type="password" placeholder="Password input">
+        <input class="input is-danger" type="password" placeholder="Password input" id="password-signup">
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
@@ -107,10 +107,10 @@
     
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-link">Sign Up</button>
+        <button class="button is-link " type="submit">Sign Up</button>
       </div>
     </div>
-  </section>
+  </form>
 
 </section>
 
@@ -124,8 +124,8 @@
     <p>Team Members: Eric, Paul, Cody and Najiba @ DU bootcamp of 2022-2023</p>
   </footer>
 
-  <!-- only when the login.js is created
-  <script src="../../public/js/login.js"></script> -->
+  <!-- only when the login.js is created -->
+  <script src="../../public/js/login.js"></script> 
 
 </body>
 
