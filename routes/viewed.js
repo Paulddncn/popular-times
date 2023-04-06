@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const axios = require('axios');
 
 router.get('/viewed', async (req, res) => {
@@ -11,4 +10,4 @@ router.get('/viewed', async (req, res) => {
     }
 });
 
-module.exports = router
+module.exports = router;
