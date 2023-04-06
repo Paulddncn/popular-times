@@ -4,5 +4,9 @@ CREATE DATABASE times_db;
 
 USE times_db
 
+CREATE TABLE users {
+    id INT NOT NULL 
+
+}
 
 
