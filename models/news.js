@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt'); //
+// const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class News extends Model {
@@ -23,20 +23,16 @@ News.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-    
     },
     author: {
       type: DataTypes.STRING,
       allowNull: false,
-    
     },
     abstract: {
-        type: DataTypes.STRING,
-        allowNull: true,
-     
-      },
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
-
 );
 
-module.exports = User;
+module.exports = News;
