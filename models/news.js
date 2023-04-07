@@ -15,7 +15,7 @@ News.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    titlename: {
+    titleName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
