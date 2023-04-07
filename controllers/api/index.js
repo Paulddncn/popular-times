@@ -1,7 +1,7 @@
 const router = require('express').Router();
 // const emailedRoutes = require('./emailed-routes');
 // const sharedRoutes = require('./shared-routes');
-const viewedRoutes = require('./viewed-routes');
+const viewedRoutes = require('./viewRoutes');
 require('dotenv').config();
 
 // router.use('/emailed', emailedRoutes);
