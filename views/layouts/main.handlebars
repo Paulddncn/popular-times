@@ -28,6 +28,16 @@
     <div class="description section has-text-centered is-size-4">
       <p>General Description of our application</p>
     </div>
+
+    <div class="card-container">
+                {{#each data.results}}
+                 <div class="card">
+                <div class="card-header-title is-centered is-size-3">{{title}}</div>
+                <img class="card-image" src="https://via.placeholder.com/150x150.png?text=No+Image" alt="{{title}}">
+                <div class="card-content">{{abstract}}</div>
+                </div>
+                {{/each}}
+                </div>
   
   </main>
 
