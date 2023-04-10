@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class News extends Model {
+class SavedArticles extends Model {
 
   }
 
 
-News.init(
+SavedArticles.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,7 +15,7 @@ News.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    titleName: {
+    article_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -32,7 +32,19 @@ News.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      foriegnKey: true
+    }
   },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'saved_articles',
+  }
 );
 
-module.exports = News;
+module.exports = SavedArticles;
