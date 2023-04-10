@@ -1,11 +1,9 @@
 const router = require('express').Router();
-const apiRoutes = require('./api');
-require('dotenv').config();
 
+const htmlRoutes = require('./html-routes');
+const apiRoutes = require('./api'); // api/index.js
+
+//router.use('/', htmlRoutes);
 router.use('/api', apiRoutes);
-
-router.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>")
-});
 
 module.exports = router;
