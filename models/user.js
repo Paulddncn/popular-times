@@ -51,4 +51,6 @@ User.init(
   }
 );
 
+//This is stupid
+
 module.exports = User;
