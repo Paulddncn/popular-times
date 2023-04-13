@@ -1,5 +1,5 @@
 {
-  "name": "copy_popular_times",
+  "name": "popular-times",
   "version": "1.0.0",
   "description": "Copy of Times for saving",
   "main": "server.js",
@@ -10,21 +10,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Grillmast/copy_popular_times.git"
+    "url": "git+https://github.com/eziegler11/popular-times"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Grillmast/copy_popular_times/issues"
+    "url": "https://github.com/eziegler11/popular-times"
   },
-  "homepage": "https://github.com/Grillmast/copy_popular_times#readme",
+  "homepage": "https://github.com/eziegler11/popular-times#readme",
   "dependencies": {
     "axios": "^1.3.5",
     "bcrypt": "^5.1.0",
+    "bulma": "^0.9.4",
+    "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^7.0.4",
+    "express-session": "^1.17.3",
     "handlebars": "^4.7.7",
     "mysql2": "^3.2.0",
     "nodemon": "^2.0.22",

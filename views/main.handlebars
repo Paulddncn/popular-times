@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Popular Times</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
 <body class=" p-3 is-family-sans-serif">
@@ -17,25 +16,41 @@
         <p id="card-title"></p>
       </div>
 
-      <div class="card-container">
-        {{#each data.results}}
+<div class="card-container columns is-multiline">
+  {{#each data.results}}
+    <div class="column is-half">
+      <a href="{{url}}" target="_blank" style="text-decoration:none; color:black;">
         <div class="card">
           <div class="card-header-title is-centered is-size-3">{{title}}</div>
-          <img class="card-image" src="https://via.placeholder.com/150x150.png?text=No+Image" alt="{{title}}">
+          {{#if media}}
+            {{#each media}}
+              {{#if multimedia.[2].url}}
+                <img class="card-image" src="{{multimedia.[2].url}}" alt="{{title}}">
+              {{else if multimedia.[1].url}}
+                <img class="card-image" src="{{multimedia.[1].url}}" alt="{{title}}">
+              {{else if multimedia.[0].url}}
+                <img class="card-image" src="{{multimedia.[0].url}}" alt="{{title}}">
+              {{else}}
+                <img class="card-image" src="https://via.placeholder.com/150x150.png?text=No+Image" alt="{{title}}">
+              {{/if}}
+            {{/each}}
+          {{else}}
+            <img class="card-image" src="https://via.placeholder.com/150x150.png?text=No+Image" alt="{{title}}">
+          {{/if}}
+          {{#if true}}
           <div class="card-content">{{abstract}}</div>
+          <a href="/save/{{id}}" class="button is-info">Save</a>
         </div>
-        {{/each}}
-      </div>
-
-      {{#if isAuthenticated}}
-      <a href="/saved-articles">Saved Articles</a>
+      </a>
       {{/if}}
-    </section>
-  
+    </div>
+  {{/each}}
+</div>
+
+
+
+
   </section>
-
-
-
 </body>
 
 </html>

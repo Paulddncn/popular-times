@@ -4,18 +4,36 @@ const exphbs = require('express-handlebars');
 const sequelize = require('./config/connection');
 const path = require('path');
 const Articles = require('./models/articles');
-const authRouter = require('./controllers/api/auth');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const { isAuthenticated } = require('./controllers/api/auth');
-// const saveRoutes = require('./controllers/api/save');
+const routes = require('./controllers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 var hbs = exphbs.create({});
 
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'))
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -24,8 +42,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', async (req, res) => {
   try {
-    const articles = await Articles.fetchAll(); 
-    res.render('main', { layout: 'index', data: articles }); 
+    const articles = await Articles.fetchAll();
+    res.render('main', { layout: 'index', data: articles, logged_in: req.session.logged_in });
+    console.log(articles); 
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal server error');
@@ -40,8 +59,7 @@ app.get('/login', (req, res) => {
   }
 });
 
-app.use('/api/auth', authRouter);
-// app.use('/api/save', isAuthenticated, saveRoutes); 
+app.use(routes);
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {
