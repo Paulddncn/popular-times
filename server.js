@@ -5,7 +5,6 @@ const sequelize = require('./config/connection');
 const session = require('express-session');
 const path = require('path');
 const Articles = require('./models/articles');
-const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const { isAuthenticated } = require('./controllers/api/auth');
 const routes = require('./controllers');
