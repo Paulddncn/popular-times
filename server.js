@@ -61,6 +61,14 @@ app.get('/login', (req, res) => {
   }
 });
 
+app.get('/signup', (req, res) => {
+  try { 
+    res.render('signup', { layout: 'index' });
+  } catch (error) {
+    res.status(500).console.log(error)
+  }
+})
+
 app.use(routes);
 
 // sync sequelize models to the database, then turn on the server
