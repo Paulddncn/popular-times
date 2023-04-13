@@ -6,47 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Popular Times</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+
 </head>
 
 <body class=" p-3 is-family-sans-serif">
   <section class="popular-articles has-background-grey-light pt-4">
 
-    <section class="container-form flex-container">
-      <div class="card">
-        <p id="card-title"></p>
+    <div class="content has-text-centered is-size-5">
+      <h1>Popular Articles</h1>
+    </div>
+
+    <div class="description section has-text-centered is-size-4">
+      <h2 class="content has-text is-size-4">General Description of Popular Times</h2>
+      <p>The application is a news portal where users can access the latest news articles of New York Times on various
+        topics and also can save the topic of interest to them to view the related news articles later after log in. The
+        application provides a convenient and secure way for users to stay up-to-date with the latest news while
+        ensuring the privacy and security of their personal information.</p>
+    </div>
+
+
+    <section class="">
+      {{!-- <img src="{{imageEl}}" alt="{{title}}"> --}}
+
+      <div class="is-flex  is-flex-wrap-wrap is-justify-content-center ">
+        {{#each data.results}}
+        {{!-- {{#with this}} --}}
+        <div class="card mx-3 my-3 ">
+          <div class="card-header-title has-text has-text-centered is-size-5">{{title}}</div>
+          {{!-- <div class="card-image">
+            <figure class="image is-48x48">
+              <img src="{{imageEl}}" alt="{{title}}">
+            </figure>
+          </div> --}}
+          {{!-- {{/if}} --}}
+          <div class="card-content has-text has-text-justified">
+            {{abstract}}
+            <a href="{{url}}">Read more ...</a>
+          </div>
+        </div>
+        {{!-- {{/with}} --}}
+        {{/each}}
       </div>
 
-<div class="card-container columns is-multiline">
-  {{#each data.results}}
-    <div class="column is-half">
-      <a href="{{url}}" target="_blank" style="text-decoration:none; color:black;">
-        <div class="card">
-          <div class="card-header-title is-centered is-size-3">{{title}}</div>
-          {{#if media}}
-            {{#each media}}
-              {{#if multimedia.[2].url}}
-                <img class="card-image" src="{{multimedia.[2].url}}" alt="{{title}}">
-              {{else if multimedia.[1].url}}
-                <img class="card-image" src="{{multimedia.[1].url}}" alt="{{title}}">
-              {{else if multimedia.[0].url}}
-                <img class="card-image" src="{{multimedia.[0].url}}" alt="{{title}}">
-              {{else}}
-                <img class="card-image" src="https://via.placeholder.com/150x150.png?text=No+Image" alt="{{title}}">
-              {{/if}}
-            {{/each}}
-          {{else}}
-            <img class="card-image" src="https://via.placeholder.com/150x150.png?text=No+Image" alt="{{title}}">
-          {{/if}}
-          {{#if true}}
-          <div class="card-content">{{abstract}}</div>
-          <a href="/save/{{id}}" class="button is-info">Save</a>
-        </div>
-      </a>
+      {{#if isAuthenticated}}
+      <a href="/saved-articles">Saved Articles</a>
       {{/if}}
-    </div>
-  {{/each}}
-</div>
+    </section>
 
+  </section>
 
 
 
