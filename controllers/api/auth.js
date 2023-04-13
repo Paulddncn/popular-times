@@ -55,21 +55,27 @@ module.exports = router;
 // const exphbs = require('express-handlebars');
 // const app = express();
 
-// // Configure template Engine and Main Template File
-// app.engine('hbs', exphbs({
-//     defaultLayout: 'index',
-// }));
-// // Setting template Engine
-// app.set('view engine', 'hbs');
 
-// router.get('/login', (req, res) => {
-//     try {
-//       res.render('login', { layout: 'index' });
-//     } catch (error) {
-//       res.status(500).console.log(error);
-//     }
-// });
+	const validPassword = await Users.findOne({
+		where: {
+			password: req.body.password,
+		},
+	});
 
-// module.exports = router;
+	if (!validPassword) {
+		res.status(400).json({ message: 'Incorrect email or password. Please try again.'});
+		return;
+	}
 
-// api/auth/login
+	// req.session.save(() => {
+	// 	req.session.loggedIn = true;
+	// });
+		res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
+	
+	} catch (error) {
+		console.log(error)
+		res.status(500).json(error);
+	}
+});
+
+module.exports = router;
