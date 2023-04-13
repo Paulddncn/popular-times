@@ -9,10 +9,13 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const { isAuthenticated } = require('./controllers/api/auth');
 const routes = require('./controllers');
 
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 var hbs = exphbs.create({});
+
 
 const sess = {
   secret: 'Super secret secret',
@@ -30,6 +33,7 @@ const sess = {
 };
 
 app.use(session(sess));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
