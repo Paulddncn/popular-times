@@ -9,3 +9,13 @@ CREATE TABLE user (
     email VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL
 );
+
+CREATE TABLE saved_articles (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  article_name VARCHAR(255) NOT NULL,
+  url VARCHAR(255) NOT NULL,
+  author VARCHAR(255) NOT NULL,
+  abstract TEXT,
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user (id)
+);

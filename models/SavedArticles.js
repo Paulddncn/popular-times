@@ -3,8 +3,8 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class SavedArticles extends Model {
-
-  }
+  
+}
 
 
 SavedArticles.init(
