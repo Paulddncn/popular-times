@@ -30,26 +30,27 @@
     <section class="">
   
 
-      <div class="is-flex  is-flex-wrap-wrap is-justify-content-center ">
-        {{#each data.results}}
-    
-        <div class="card mx-3 my-3 ">
-          <div class="card-header-title has-text has-text-centered is-size-5">{{title}}</div>
-         
-          {{!-- <div class="card-image">
-            <figure class="image is-48x48">
-              <img src="{{imageEl}}" alt="{{title}}">
+      <div class="columns is-multiline">
+  {{#each data.results}}
+    <div class="column is-one-third">
+      <div class="card">
+        <div class="card-header-title has-text has-text-centered is-size-5">{{title}}</div>
+        {{#if imageEl}}
+          <div class="card-image">
+            <figure class="image {{#ifCond 'is-square' '==' imageEl.aspectRatio}}is-square{{/ifCond}}{{#ifCond 'is-16by9' '==' imageEl.aspectRatio}}is-16by9{{/ifCond}}">
+              <img src="{{imageEl.url}}" alt="{{title}}">
             </figure>
-          </div> --}}
-          
-          <div class="card-content has-text has-text-justified">
-            {{abstract}}
-            <a href="{{url}}">Read more ...</a>
           </div>
+        {{/if}}
+        <div class="card-content has-text has-text-justified">
+          {{abstract}}
+          <a href="{{url}}">Read more ...</a>
         </div>
-       
-        {{/each}}
       </div>
+    </div>
+  {{/each}}
+</div>
+
 
       {{#if isAuthenticated}}
       <a href="/saved-articles">Saved Articles</a>
