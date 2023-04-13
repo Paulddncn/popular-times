@@ -46,7 +46,6 @@ app.get('/', async (req, res) => {
   try {
     const articles = await Articles.fetchAll();
     res.render('main', { layout: 'index', data: articles, logged_in: req.session.logged_in });
-    console.log(articles); 
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal server error');
