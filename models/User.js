@@ -43,6 +43,7 @@ User.init(
     //     return newUserData;
     //   },
     // },
+
     sequelize,
     timestamps: false,
     freezeTableName: true,
@@ -50,5 +51,7 @@ User.init(
     modelName: 'user',
   }
 );
+
+//This is stupid
 
 module.exports = User;
