@@ -28,25 +28,26 @@
 
 
     <section class="">
-      {{!-- <img src="{{imageEl}}" alt="{{title}}"> --}}
+  
 
       <div class="is-flex  is-flex-wrap-wrap is-justify-content-center ">
         {{#each data.results}}
-        {{!-- {{#with this}} --}}
+    
         <div class="card mx-3 my-3 ">
           <div class="card-header-title has-text has-text-centered is-size-5">{{title}}</div>
+         
           {{!-- <div class="card-image">
             <figure class="image is-48x48">
               <img src="{{imageEl}}" alt="{{title}}">
             </figure>
           </div> --}}
-          {{!-- {{/if}} --}}
+          
           <div class="card-content has-text has-text-justified">
             {{abstract}}
             <a href="{{url}}">Read more ...</a>
           </div>
         </div>
-        {{!-- {{/with}} --}}
+       
         {{/each}}
       </div>
 
