@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const exphbs = require('express-handlebars');
 const sequelize = require('./config/connection');
+const session = require('express-session');
 const path = require('path');
 const Articles = require('./models/articles');
 const session = require('express-session');
@@ -9,12 +10,9 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const { isAuthenticated } = require('./controllers/api/auth');
 const routes = require('./controllers');
 
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-var hbs = exphbs.create({});
 
 
 const sess = {
@@ -32,8 +30,9 @@ const sess = {
   })
 };
 
-app.use(session(sess));
+var hbs = exphbs.create({});
 
+app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
