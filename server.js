@@ -44,8 +44,12 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', async (req, res) => {
   try {
-    const articles = await Articles.fetchAll();
-    res.render('main', { layout: 'index', data: articles });
+    const articles = await Articles.fetchAll(); 
+    const imageEl = articles.results[0].media[0]['media-metadata'][0].url;
+    // const imageObject = imageEl
+    console.log(imageEl);
+    res.render('main', { layout: 'index', data: articles, imageEl }); 
+
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal server error');
